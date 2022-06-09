@@ -76,5 +76,5 @@
 
   header("Content-Type: application/json");
 
-  echo json_encode($dischi_db)
+  echo json_encode($dischi)
 ?>
