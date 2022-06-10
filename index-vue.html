@@ -11,9 +11,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/
-  font-awesome/5.15.2/css/all.min.css"/>
-
   <link rel="stylesheet" href="./css/style-vue.css">
   
   <title>Php-Ajax-Dischi</title>
@@ -27,7 +24,7 @@
           <i class="fa-brands fa-spotify"></i>
           <div class="selects d-flex">
     
-            <select v-model.trim="genreChosed" @change="$emit('genreSearching', genreChosed)" class="form-select rl-select" name="genre" >
+            <select v-model.trim="genreChosed" @change="genreChosed" class="form-select rl-select" name="genre" >
               <option value="">Seleziona un Genere</option>
               <option value="Rock">Rock</option>
               <option value="Pop">Pop</option>
