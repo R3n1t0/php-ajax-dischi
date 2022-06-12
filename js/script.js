@@ -2,9 +2,10 @@ const app = new Vue({
   el: "#app",
 
   data:{
-    apiUrl: "http://localhost/php-ajax-dischi/api.php",
-    genresList: [],
-    genreChosed: "",
+    apiUrl: "http://localhost/php-ajax-dischi/api/api.php",
+    albums: [],
+    genres: [],
+    genreChosed: "all"
   },
 
   mounted(){
@@ -13,11 +14,16 @@ const app = new Vue({
 
   methods:{
     getApi(){
-      axios.get(this.apiUrl)
-      .then(res =>{
-        this.genresList = res.data
+      axios.get(this.apiUrl,{
+        params:{
+          genre: this.genreChosed
+        }
+      })
+      .then(response => {
+        this.albums = response.data.albums
+        this.genres = response.data.genres
       })
     }
-  }
+  },
 
 })

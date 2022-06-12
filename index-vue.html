@@ -24,12 +24,12 @@
           <i class="fa-brands fa-spotify"></i>
           <div class="selects d-flex">
     
-            <select v-model.trim="genreChosed" @change="genreChosed" class="form-select rl-select" name="genre" >
-              <option value="">Seleziona un Genere</option>
-              <option value="Rock">Rock</option>
-              <option value="Pop">Pop</option>
-              <option value="Jazz">Jazz</option>
-              <option value="Metal">Metal</option>
+            <select v-model.trim="genreChosed" @change="getApi" class="form-select rl-select" name="genre" >
+              <option value="all">Seleziona un Genere</option>
+              <option 
+              v-for="(genre, index) in genres"
+              :key = "`g${index}`"
+              :value="genre">{{genre}}</option> 
             </select>
     
           </div>
@@ -38,13 +38,14 @@
       </div>
 
       <div class="cards-container d-flex mt-5 container">
-        <div class="rl-card d-flex text-center p-3 m-2">
-          <div class="rl-card d-flex text-center p-3 m-2">
-            <img src="" alt="">
-            <h6></h6>
-            <p></p>
-            <p></p>
-          </div>
+        <div
+          v-for="(album, index) in albums"
+          :key="`a${index}`" 
+          class="rl-card d-flex text-center p-3 m-2">
+          <img :src="album.poster" :alt="album.title">
+          <h6>{{album.title}}</h6>
+          <p>{{album.author}}</p>
+          <p>{{album.year}}</p>  
         </div>
       </div>
     </div>
